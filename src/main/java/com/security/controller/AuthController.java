@@ -46,7 +46,7 @@ public class AuthController {
     public ResponseEntity<User> register(@RequestBody User user){
 
         user.setPassword(passwordEncoder.encode(user.getPassword()));
-
+         System.out.println(user.getUsername());
         User userData=  userService.save(user);
         return ResponseEntity.status(HttpStatus.CREATED).body(userData);
 
