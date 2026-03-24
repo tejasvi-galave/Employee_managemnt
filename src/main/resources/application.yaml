@@ -3,14 +3,14 @@ spring:
     name: employee-service
 
   datasource:
-    url: jdbc:postgresql://dpg-d6vd9h95pdvs738j9gvg-a.singapore-postgres.render.com:5432/employee_management_0gfi
-    username: admin
-    password: b48OhxXvmFRbNU68IUu5fzlOf9SZfpr8
+    url: ${DB_URL}
+    username: ${DB_USERNAME}
+    password: ${DB_PASSWORD}
     driver-class-name: org.postgresql.Driver
 
   jpa:
     hibernate:
-      ddl-auto: none  # use validate/none in production
+      ddl-auto: none
     show-sql: true
     properties:
       hibernate:
@@ -18,7 +18,7 @@ spring:
         dialect: org.hibernate.dialect.PostgreSQLDialect
 
 server:
-  port: 8181
+  port: ${PORT:8080}
 
 jwt:
   secret: mySuperSecretKeyForJwtTokenGeneration123456
