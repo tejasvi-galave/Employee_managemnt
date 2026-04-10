@@ -13,6 +13,8 @@ import org.springframework.security.authentication.UsernamePasswordAuthenticatio
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.List;
+
 @RestController
 @RequestMapping("/auth")
 public class AuthController {
@@ -49,7 +51,13 @@ public class AuthController {
          System.out.println(user.getUsername());
         User userData=  userService.save(user);
         return ResponseEntity.status(HttpStatus.CREATED).body(userData);
+    }
 
+    @GetMapping("/users")
+    public ResponseEntity<List<User>> getAllUsers() {
+
+        List<User> users = userService.getAllUsers();
+        return ResponseEntity.ok(users);
     }
 }
 
