@@ -22,6 +22,7 @@ public class EmpController {
     public ResponseEntity<Employee> addEmployee(@RequestBody Employee emp){
        String username = SecurityContextHolder.getContext().getAuthentication().getName();
        emp.setUsername(username);
+
        Employee employee = employeeService.save(emp);
        return ResponseEntity.status(HttpStatus.CREATED).body(employee);
     }
