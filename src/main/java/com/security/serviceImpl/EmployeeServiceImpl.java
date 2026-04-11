@@ -29,4 +29,9 @@ public class EmployeeServiceImpl  implements EmployeeService {
      List<Employee>  emp =  empRepository.findByUsername(username);
      return emp;
     }
+
+    @Override
+    public List<Employee> getAllEmp() {
+        return empRepository.findAll();
+    }
 }

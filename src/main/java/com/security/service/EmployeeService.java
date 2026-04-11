@@ -12,4 +12,6 @@ public interface EmployeeService {
     void deleteById(int id);
 
     List<Employee> findEmpByUsername(String username);
+
+    List<Employee> getAllEmp();
 }

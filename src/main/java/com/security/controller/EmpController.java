@@ -1,6 +1,7 @@
 package com.security.controller;
 
 import com.security.entity.Employee;
+import com.security.entity.User;
 import com.security.service.EmployeeService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -30,7 +31,7 @@ public class EmpController {
     public ResponseEntity<List<Employee>> findEmpByUsername() {
 
         String username = SecurityContextHolder.getContext().getAuthentication().getName();
-           System.out.println(username);
+        System.out.println(username);
         List<Employee> employees = employeeService.findEmpByUsername(username);
         return ResponseEntity.ok(employees);
     }
@@ -41,3 +42,4 @@ public class EmpController {
         return ResponseEntity.ok("Employee deleted successfully");
     }
 }
+
